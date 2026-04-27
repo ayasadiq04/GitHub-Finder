@@ -1,0 +1,342 @@
+:root {
+  --bg-primary:    #0d1117;
+  --bg-secondary:  #161b22;
+  --bg-card:       #1c2128;
+  --border:        #30363d;
+  --text-primary:  #e6edf3;
+  --text-secondary:#8b949e;
+  --accent:        #58a6ff;
+  --accent-hover:  #79b8ff;
+  --star:          #f0c040;
+  --error:         #f85149;
+  --success:       #3fb950;
+  --radius:        12px;
+  --radius-sm:     8px;
+  --shadow:        0 4px 24px rgba(0,0,0,0.4);
+  --transition:    0.2s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+
+
+.header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__logo img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+  margin-right: 8px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header__logo svg {
+  color: var(--accent);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background-color: var(--accent);
+  color: #0d1117;
+}
+.btn--primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.btn--ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn--outline:hover {
+  background: var(--accent);
+  color: #0d1117;
+}
+
+.btn--star {
+  background: transparent;
+  color: var(--star);
+  border: 1px solid var(--star);
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+.btn--star:hover {
+  background: var(--star);
+  color: #0d1117;
+}
+
+.badge {
+  background: var(--accent);
+  color: #0d1117;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.search-section {
+  text-align: center;
+}
+
+.search-section__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.search-bar__input {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  padding: 0.6rem 1rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.search-bar__input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-bar__input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+.messages {
+  text-align: center;
+}
+
+.message {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.message--welcome {
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border);
+}
+
+.message--error {
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.message--loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  display: flex;
+  gap: 2rem;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.35s ease;
+}
+
+.profile-card__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+}
+
+.profile-card__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  object-fit: cover;
+}
+
+.profile-card__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-card__name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.profile-card__login {
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.profile-card__bio {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0.3rem 0 0.6rem;
+  min-height: 1.2em;
+}
+
+.profile-card__stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  min-width: 80px;
+}
+
+.stat__value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat__label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bookmarks-section {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.bookmarks-section__title  {
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.bookmarks-section__msg {
+    color: #64748b;
+    text-align: center;
+    padding: 20px;
+}
+.bookmarks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
