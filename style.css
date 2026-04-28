@@ -35,7 +35,9 @@ body {
   min-height: 100vh;
 }
 
-
+.hidden{
+  display: none !important;
+}
 
 .header {
   background-color: var(--bg-secondary);
