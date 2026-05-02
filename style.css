@@ -56,22 +56,31 @@ body {
   background: rgba(8, 11, 16, 0.9);
   backdrop-filter: blur(12px);
 }
-.logo {
-  display: flex;
+.header__logo {
+ display: flex;
   align-items: center;
   gap: 0.6rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
-.logo__icon {
-  font-size: 1.4rem;
-  color: var(--accent);
-  line-height: 1;
+.header__logo img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+  margin-right: 8px;
+  z-index: 50;
+  background: rgba(8, 11, 16, 0.9);
+  backdrop-filter: blur(12px);
 }
-.logo__text {
+.header__logo span {
   font-family: var(--sans);
   font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: 0.04em;
-  color: var(--text);
+  color: var(--accent);
 }
 .btn-bookmarks {
   display: flex;

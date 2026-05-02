@@ -116,11 +116,7 @@ function displayRepositories(repos) {
 //  API FUNCTIONS 
 // Récupère les infos d'un utilisateur GitHub
 async function fetchUser(username) {
-    const response = await fetch("https://api.github.com/users/" + username, {
-        headers: {
-            'Authorization': `token ${env.Token}`
-        }
-    }  );
+    const response = await fetch(`https://api.github.com/users/${username}`);
   
     if (response.status === 404) {
         throw new Error('Utilisateur "' + username + '" introuvable.');
